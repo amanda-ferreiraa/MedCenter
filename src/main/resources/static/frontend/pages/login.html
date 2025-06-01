@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - MedCenter</title>
+  <link rel="icon" href="../../assets/images/heart-icon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/common.js" defer></script>
+</head>
+<body class="bg-gray-50 relative">
+  <!-- NAVBAR -->
+  <header id="navbar-container"></header>
+
+  <div class="min-h-screen flex flex-col md:flex-row relative">
+    <!-- Imagem Central -->
+    <div class="hidden md:block fixed inset-0 flex items-center justify-center z-20 pointer-events-none">
+      <img src="../../assets/images/login.png" alt="imagem médica" class="w-3/4 h-auto max-w-3xl opacity-110" />
+    </div>
+
+    <!-- Lado Esquerdo com Fundo Azul -->
+    <div class="hidden md:flex md:w-1/2 lg:w-2/5 relative">
+      <div class="absolute inset-0" style="background-color: #05567A; opacity: 0.85;"></div>
+      <div class="relative z-10 flex items-center justify-center w-full h-full text-white"></div>
+    </div>
+
+    <!-- Lado Direito - Formulário -->
+     <!-- Lado Direito - Formulário -->
+<div class="w-full md:w-1/2 lg:w-3/5 flex items-center justify-center p-10">
+  <div class="w-full max-w-lg z-30 flex flex-col items-center">
+    <div class="titulo mb-6">
+      <h1>Área do Profissional de Saúde</h1>
+      <p>Bem-vindo à sua área de trabalho.</p>
+    </div>
+    <div class="login-container bg-white rounded-xl p-12 shadow-lg w-full">
+    <h2 class="text-2xl font-bold mb-2" style="color: #05567A;">Acesse sua conta</h2>
+      <p class="text-gray-600 mb-6">Entre com suas credenciais para acessar o sistema</p>
+
+
+          <!-- FORMULÁRIO -->
+          <form id="login-form" class="space-y-4">
+            <!-- E-mail -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="fas fa-envelope text-gray-400"></i>
+                </div>
+                <input type="email" id="email" name="email" required class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="seu@email.com">
+              </div>
+            </div>
+
+            <!-- Senha -->
+            <div>
+              <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="fas fa-lock text-gray-400"></i>
+                </div>
+                <input type="password" id="password" name="password" required class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••">
+                <button type="button" id="toggle-password" class="absolute right-3 top-3 text-gray-400 hover:text-blue-600">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="flex justify-between mt-1">
+                <a href="#" class="text-sm text-blue-600 hover:underline">Esqueci minha senha</a>
+              </div>
+            </div>
+
+            <!-- ERRO -->
+            <div id="error-message" class="error-message text-red-500 text-sm hidden">
+              E-mail ou senha inválidos. Tente novamente.
+            </div>
+
+            <!-- Botão -->
+            <div class="pt-2">
+              <button type="submit" class="w-full bg-[#05567A] hover:bg-black text-white py-3 px-4 rounded-lg font-medium transition duration-200 flex items-center justify-center">
+                <span>Entrar</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Criar conta -->
+          <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">Novo no MedCenter?
+              <a href="cadastro.html" class="text-blue-600 hover:underline font-medium">Crie uma conta</a>
+            </p>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/login.js"></script>
+</body>
+</html>

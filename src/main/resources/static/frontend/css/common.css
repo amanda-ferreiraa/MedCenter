@@ -1,0 +1,25 @@
+/* Estilos comuns para todas as páginas */
+
+/* Espaçamento para a navbar fixa */
+body {
+  padding-top: 90px;
+}
+
+/* Container comum */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsividade para o conteúdo */
+@media (max-width: 900px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .container {
+    padding: 10px;
+    width: 90%;
+  }
+} 

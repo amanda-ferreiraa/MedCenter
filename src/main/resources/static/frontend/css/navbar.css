@@ -1,0 +1,412 @@
+/* Reset básico para garantir consistência */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Logo da navbar */
+.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.logo span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; 
+  font-size: 20px;
+  color: #2ea5c0;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Estilo principal da navbar */
+nav {
+  background-color: #fff; 
+  width: 100%;
+  height: 70px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Animação de entrada da navbar */
+nav.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeito de scroll na navbar */
+nav.scrolled {
+  height: 60px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+nav.scrolled .logo img {
+  width: 40px;
+  height: 40px;
+}
+
+nav.scrolled .logo span {
+  font-size: 18px;
+}
+
+nav.scrolled ul a {
+  padding: 20px 20px;
+  font-size: 16px;
+}
+
+nav.scrolled ul a::after {
+  bottom: 12px;
+}
+
+nav.scrolled .login-button {
+  padding: 8px 20px;
+}
+
+nav.scrolled .login-button a {
+  font-size: 16px;
+}
+
+/* Lista de links da navbar */
+nav ul {
+  display: flex; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+/* Links da navbar */
+nav ul a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; 
+  font-size: 18px;
+  color: #6d6e75;
+  text-decoration: none;
+  padding: 25px 20px;
+  display: block;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Efeito de sublinhado animado nos links */
+nav ul a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 0%;
+  height: 2px;
+  background-color: #2ea5c0; 
+  transition: width 0.3s ease;
+}
+
+/* Hover nos links */
+nav ul a:hover {
+  color: #2ea5c0;  
+}
+
+nav ul a:hover::after {
+  width: 100%; 
+}
+
+/* Link ativo */
+nav ul a.active {
+  color: #2ea5c0;
+}
+
+nav ul a.active::after {
+  width: 100%;
+}
+
+/* Botão de login */
+.login-button {
+  position: relative;
+  background-color: #fcb900;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-right: 20px;
+  overflow: hidden; 
+}
+
+/* Efeito de brilho no botão de login */
+.login-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: brilhoPassando 5s infinite;
+}
+
+@keyframes brilhoPassando {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Hover no botão de login */
+.login-button:hover {
+  background-color: #2f3436;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Estilo do link dentro do botão de login */
+.login-button a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  z-index: 1; 
+}
+
+/* ---------------- RESPONSIVIDADE ---------------- */
+/* Menu hambúrguer para telas pequenas */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 28px;
+  background: #2ea5c0;
+  margin: 4px 0;
+  border-radius: 5px;
+  transition: all 0.4s ease;
+  transform-origin: left center;
+}
+
+/* Adiciona espaço para a navbar fixa */
+body {
+  padding-top: 70px;
+  transition: padding-top 0.3s ease;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 900px) {
+  /* Ajusta o tamanho da navbar */
+  nav {
+    height: 60px;
+  }
+  
+  body {
+    padding-top: 60px;
+  }
+  
+  /* Reduz o padding dos links */
+  nav ul a {
+    padding: 20px 15px;
+    font-size: 16px;
+  }
+  
+  /* Ajusta o logo */
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo span {
+    font-size: 16px;
+  }
+  
+  /* Ajusta o botão de login */
+  .login-button {
+    padding: 8px 15px;
+    margin-right: 15px;
+  }
+  
+  .login-button a {
+    font-size: 16px;
+  }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 700px) {
+  /* Ajusta a navbar para mobile */
+  nav {
+    height: 60px;
+  }
+  
+  body {
+    padding-top: 60px;
+  }
+  
+  /* Exibe o menu hambúrguer */
+  .menu-toggle {
+    display: flex;
+  }
+  
+  /* Animação para o menu hambúrguer quando ativo */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    width: 22px;
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    width: 22px;
+  }
+  
+  /* Estiliza o menu mobile */
+  nav ul {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    flex-direction: column;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Exibe o menu quando ativo */
+  nav ul.active {
+    height: auto;
+    padding: 20px 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Ajusta os links no menu mobile */
+  nav ul a {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #f1f1f1;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Animação para os links quando o menu está ativo */
+  nav ul.active a {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+  
+  /* Atrasa a animação para cada link subsequente */
+  nav ul.active a:nth-child(2) {
+    transition-delay: 0.25s;
+  }
+  
+  nav ul.active a:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  
+  nav ul.active a:nth-child(4) {
+    transition-delay: 0.35s;
+  }
+  
+  nav ul a:last-child {
+    border-bottom: none;
+  }
+  
+  /* Reposiciona o efeito de sublinhado */
+  nav ul a::after {
+    bottom: 10px;
+  }
+  
+  /* Centraliza o botão de login no mobile */
+  .login-button {
+    margin: 10px auto;
+    padding: 10px 30px;
+  }
+  
+  /* Overlay para quando o menu está aberto */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,0,0);
+    transition: all 0.3s ease;
+    z-index: 999;
+    pointer-events: none;
+  }
+  
+  /* Ativa o overlay quando o menu está aberto */
+  body.menu-open::after {
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: auto;
+  }
+}
+
+/* Responsividade para celulares pequenos */
+@media (max-width: 400px) {
+  .logo span {
+    font-size: 14px;
+  }
+  
+  .logo img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  /* Ajusta o menu hambúrguer */
+  .menu-toggle span {
+    width: 24px;
+  }
+  
+  .menu-toggle.active span:nth-child(1),
+  .menu-toggle.active span:nth-child(3) {
+    width: 18px;
+  }
+}

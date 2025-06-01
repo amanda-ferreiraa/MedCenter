@@ -1,0 +1,133 @@
+/* Responsividade para TELAS PEQUENAS (até 900px) */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: center; /* centraliza o conteúdo */
+    text-align: center;
+    gap: 0; /* deixa o texto alinhado no centro */
+  }
+
+  .features {
+    flex-wrap: wrap;
+    justify-content: center; /* centraliza os itens */
+  }
+
+  .feature {
+    width: 100%;
+    margin-bottom: 20px;
+  
+  }
+.hero-images {
+  gap: 0;
+}
+
+
+}
+
+/* Responsividade para TELAS MÉDIAS (901px até 1399px) */
+@media (min-width: 901px) and (max-width: 1399px) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+  }
+
+  .features {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .feature {
+    flex: 1 1 30%; /* cards iguais e responsivos */
+    margin-bottom: 0;
+  }
+
+.hero-images {
+  gap: 0;
+  max-width: 700px
+}
+
+  }
+
+
+/* Responsividade para MONITORES GRANDES (a partir de 1400px) */
+@media (min-width: 1400px) and (max-width: 1799px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    padding: 60px 80px;
+    font-size: 1.2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .features {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+  }
+
+  .feature {
+    flex: 1 1 30%;
+    font-size: 1.1rem;
+    padding: 20px;
+    margin-bottom: 0;
+  }
+.hero-images {
+  gap: 0;
+  max-width: 700px
+}
+.medico1 {
+  height: 405px;
+  }
+
+}
+
+/* Responsividade para TELAS MUITO GRANDES (a partir de 1800px) */
+@media (min-width: 1800px) and (max-width: 2100px) {
+  .container {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    padding: 80px 100px;
+    font-size: 1.4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .features {
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
+  }
+
+  .feature {
+    flex: 1 1 30%;
+    font-size: 1.3rem;
+    padding: 30px;
+    margin-bottom: 0;
+  }
+
+.hero-images {
+    gap: 0;
+    max-width: 700px
+  }	
+  .medico1 {
+    height: 409px;
+  }
+
+  .hero-text {
+    font-size: 3rem;
+  }
+
+}

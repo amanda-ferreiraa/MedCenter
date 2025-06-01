@@ -1,0 +1,33 @@
+
+ 
+ .risk-green {
+            background-color: #4ade80;
+        }
+        .risk-yellow {
+            background-color: #facc15;
+        }
+        .risk-red {
+            background-color: #f87171;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 10;
+            }
+            .overlay.open {
+                display: block;
+            }
+        }

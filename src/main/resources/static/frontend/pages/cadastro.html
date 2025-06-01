@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - MedCenter</title>
+  <link rel="icon" href="../../assets/images/heart-icon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/common.js" defer></script>
+</head>
+<body class="bg-gray-50 relative">
+  <!-- NAVBAR -->
+  <header id="navbar-container"></header>
+
+  <div class="min-h-screen flex flex-col md:flex-row relative">
+    <!-- Imagem Central -->
+    <div class="hidden md:block fixed inset-0 flex items-center justify-center z-20 pointer-events-none">
+      <img src="../../assets/images/login.png" alt="imagem médica" class="w-3/4 h-auto max-w-3xl opacity-110" />
+    </div>
+
+    <!-- Lado Esquerdo com Fundo Azul -->
+    <div class="hidden md:flex md:w-1/2 lg:w-2/5 relative">
+      <div class="absolute inset-0" style="background-color: #05567A; opacity: 0.85;"></div>
+      <div class="relative z-10 flex items-center justify-center w-full h-full text-white"></div>
+    </div>
+
+   <!-- Right side - Registration form -->
+        <div class="w-full md:w-1/2 lg:w-3/5 flex items-center justify-center p-10">
+            <div class="w-full max-w-md">
+                <!-- Mobile logo -->
+                <div class="flex items-center mb-8 md:hidden">
+                    <i class="fas fa-hospital-alt text-3xl text-blue-600 mr-3"></i>
+                    <span class="text-2xl font-bold text-blue-600">MedCenter</span>
+                </div>
+                
+                <div class="register-container bg-white rounded-xl p-8">
+                     <h2 class="text-2xl font-bold mb-2" style="color: #05567A;">Criar Conta</h2>
+                    <p class="text-gray-600 mb-6">Preencha seus dados para se registrar como médico</p>
+                    
+                    <!-- Error message (hidden by default) -->
+                    <div id="error-message" class="error-message bg-red-50 border-l-4 border-red-500 text-red-700 p-4 mb-4 hidden">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            <span id="error-text">Por favor, preencha todos os campos obrigatórios corretamente</span>
+                        </div>
+                    </div>
+                    
+                    <form id="register-form" class="space-y-4">
+                        <div>
+                            <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <input type="text" id="fullname" name="fullname" required 
+                                       class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                       placeholder="Dr. João Silva">
+                            </div>
+                            <p id="fullname-error" class="hidden text-xs text-red-500 mt-1">Por favor, insira seu nome completo</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="crm" class="block text-sm font-medium text-gray-700 mb-1">CRM <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-id-card text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="crm" name="crm" required 
+                                           class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                           placeholder="CRM/UF-123456">
+                                </div>
+                                <p id="crm-error" class="hidden text-xs text-red-500 mt-1">Formato: CRM/UF-123456</p>
+                            </div>
+                            
+                            <div>
+                                <label for="specialty" class="block text-sm font-medium text-gray-700 mb-1">Especialidade <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <select id="specialty" name="specialty" required 
+                                            class="select-arrow input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 appearance-none">
+                                        <option value="" disabled selected>Selecione</option>
+                                        <option value="Clínico Geral">Clínico Geral</option>
+                                        <option value="Cirurgião">Cirurgião</option>
+                                        <option value="Pediatra">Pediatra</option>
+                                        <option value="Cardiologista">Cardiologista</option>
+                                        <option value="Ortopedista">Ortopedista</option>
+                                        <option value="Dermatologista">Dermatologista</option>
+                                        <option value="Ginecologista">Ginecologista</option>
+                                        <option value="Neurologista">Neurologista</option>
+                                        <option value="Outra">Outra</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400"></i>
+                                </div>
+                                <input type="email" id="email" name="email" required 
+                                       class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                       placeholder="seu@email.com">
+                            </div>
+                            <p id="email-error" class="hidden text-xs text-red-500 mt-1">Por favor, insira um e-mail válido</p>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-400"></i>
+                                </div>
+                                <input type="tel" id="phone" name="phone" required 
+                                       class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                       placeholder="(00) 00000-0000">
+                            </div>
+                            <p id="phone-error" class="hidden text-xs text-red-500 mt-1">Formato: (00) 00000-0000</p>
+                        </div>
+                        
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Criar Senha <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input type="password" id="password" name="password" required 
+                                       class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                       placeholder="••••••••">
+                                <button type="button" id="toggle-password" class="absolute right-3 top-3 text-gray-400 hover:text-blue-600">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <p id="password-error" class="hidden text-xs text-red-500 mt-1">A senha deve ter pelo menos 8 caracteres</p>
+                        </div>
+                        
+                        <div>
+                            <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar Senha <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input type="password" id="confirm-password" name="confirm-password" required 
+                                       class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                       placeholder="••••••••">
+                            </div>
+                            <p id="confirm-password-error" class="hidden text-xs text-red-500 mt-1">As senhas não coincidem</p>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-[#05567A] hover:bg-black text-white py-3 px-4 rounded-lg font-medium transition duration-200 flex items-center justify-center">
+                                <span>Cadastrar</span>
+                                <i class="fas fa-user-plus ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">
+                            Já tem uma conta? 
+                            <a href="login.html" class="text-blue-600 hover:underline font-medium">Fazer login</a>
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <div class="text-xs text-gray-500">
+                            <p>Ao se cadastrar, você concorda com nossos <a href="#" class="text-blue-600 hover:underline">Termos de Serviço</a> e <a href="#" class="text-blue-600 hover:underline">Política de Privacidade</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center text-sm text-gray-500 md:hidden">
+                    <p>© 2023 MedCenter. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/cadastro.js"></script>
+</body>
+</html>
+    </div>
+</body>
+</html>

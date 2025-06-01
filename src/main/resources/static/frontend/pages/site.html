@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedCenter - Site Profissional para Médicos</title>
+  <link rel="icon" href="../../assets/images/heart-icon.png" type="image/png">
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Scripts e Tailwind -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/site-responsive.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <!-- Scripts personalizados -->
+  <script src="../js/navbar.js"></script>
+  <script src="../js/common.js"></script>
+</head>
+<body>
+  <!-- Navbar será inserida dinamicamente -->
+  <header id="navbar-container"></header>
+  
+  <!-- Seção principal do site (Hero) -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1 class="fade-in">SITE PROFISSIONAL PARA MÉDICOS FEITO POR ESPECIALISTAS</h1>
+      <p class="fade-in">Faça como centenas de médicos(as) do Brasil: foque nos seus pacientes enquanto cuidamos do seu site.</p>
+      <a href="cadastro.html" class="cta-button fade-in">SAIBA MAIS</a>
+    </div>
+    <div class="hero-images" style="max-width: 900px; margin: 0 auto;"></div>
+      <img src="../../assets/images/site.png" alt="Arte medicos" style="width: 100%; height: auto; display: block;">
+  </section>
+
+  <!-- Seção de funcionalidades principais -->  
+  <section class="features">
+    <div class="feature">
+      <div class="icon purple">G</div>
+      <h3>Você no topo do Google</h3>
+      <p>Um site bem construído é o primeiro passo para você ficar bem posicionado no Google. A maioria dos nossos sites aparece na primeira página.</p>
+    </div>
+    <div class="feature">
+      <div class="icon yellow">
+        <i class="fas fa-computer"></i>
+      </div>
+      <h3>Um site com a sua cara</h3>
+      <p>As cores, a tipografia, as artes do banner, o logotipo... tudo será personalizado para a sua identidade visual.</p>
+    </div>
+    <div class="feature">
+      <div class="icon blue">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+       </div>
+      <h3>Feito por quem entende</h3>
+      <p>O MedCenter é uma empresa do Grupo Visana, com mais de 10 anos de atuação na área do marketing médico.</p>
+    </div>
+    <div class="feature">
+      <div class="icon brown">
+        <i class="fas fa-check-square"></i>
+        </div>
+      <h3>Nós cuidamos de tudo</h3>
+      <p>A ideia aqui é que você NÃO se preocupe com nada. Sua atenção deve estar voltada à sua carreira e ao seu negócio. Nós fazemos tudo por você.</p>
+    </div>
+  </section>
+  
+  <!-- Divisor decorativo de seção -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="var(--light-bg)"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="var(--light-bg)"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="var(--light-bg)"></path>
+    </svg>
+  </div>
+  
+  <!-- Seção Sobre Nós -->
+  <section id="sobre-nos" class="about-section">
+    <div class="about-container">
+      <div class="about-text">
+        <h2 class="text-4xl font-bold mb-6" style="color: var(--primary-color); font-family: 'Barlow Condensed', sans-serif;">SOBRE O MEDCENTER</h2>
+        <p class="mb-6 text-lg" style="color: var(--text-color); font-family: 'Roboto', sans-serif;">O MedCenter nasceu da necessidade de facilitar a rotina dos profissionais da saúde, oferecendo uma plataforma completa e especializada para gerenciamento de plantões e atendimentos médicos.</p>
+        <p class="mb-8 text-lg" style="color: var(--text-color); font-family: 'Roboto', sans-serif;">Com uma equipe dedicada de desenvolvedores e especialistas em tecnologia voltada para a saúde, criamos um sistema que não só organiza os dados de forma prática e segura, mas também ajuda médicos e administradores a tomarem decisões mais eficientes, melhorando o atendimento aos pacientes.</p>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center">
+            <div class="icon purple mr-4" style="width: 50px; height: 50px; font-size: 1.5rem;">10+</div>
+            <span style="font-family: 'Roboto', sans-serif;">Anos de experiência</span>
+          </div>
+          <div class="flex items-center">
+            <div class="icon yellow mr-4" style="width: 50px; height: 50px; font-size: 1.5rem;">
+              <i class="fas fa-users"></i>
+            </div>
+            <span style="font-family: 'Roboto', sans-serif;">500+ Clientes</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="../../assets/images/medico4.png" alt="Equipe MedCenter" class="floating">
+        <img src="../../assets/images/medico5.png" alt="Reunião de equipe" class="floating delay-1">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Seção de Especialidades -->
+  <section class="specialties-section">
+    <div class="specialties-container">
+      <h2 class="text-4xl font-bold mb-4 text-center" style="color: var(--primary-color); font-family: 'Barlow Condensed', sans-serif;">ESPECIALIDADES QUE ATENDEMOS</h2>
+      <p class="text-xl text-center mb-8" style="color: var(--text-color); font-family: 'Roboto', sans-serif;">Desenvolvemos uma plataforma para diversas especialidades médicas</p>
+      
+      <div class="specialties-grid">
+        <!-- Card de especialidade -->
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3 style="font-family: 'Roboto', sans-serif;">Cardiologia</h3>
+          <p style="font-family: 'Roboto', sans-serif;">Sites especializados para cardiologistas com recursos específicos da área.</p>
+        </div>
+        <!-- Outros cards seguem o mesmo padrão -->
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 style="font-family: 'Roboto', sans-serif;">Neurologia</h3>
+          <p style="font-family: 'Roboto', sans-serif;">Plataformas completas para neurologistas e clínicas especializadas.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <i class="fas fa-baby"></i>
+          </div>
+          <h3 style="font-family: 'Roboto', sans-serif;">Pediatria</h3>
+          <p style="font-family: 'Roboto', sans-serif;">Sites acolhedores e informativos para pediatras e pais.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 style="font-family: 'Roboto', sans-serif;">Oftalmologia</h3>
+          <p style="font-family: 'Roboto', sans-serif;">Sites modernos para oftalmologistas com agendamento online.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <i class="fas fa-tooth"></i>
+          </div>
+          <h3 style="font-family: 'Roboto', sans-serif;">Odontologia</h3>
+          <p style="font-family: 'Roboto', sans-serif;">Plataformas completas para dentistas e clínicas odontológicas.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <i class="fas fa-dna"></i>
+          </div>
+          <h3 style="font-family: 'Roboto', sans-serif;">Genética</h3>
+          <p style="font-family: 'Roboto', sans-serif;">Sites especializados para geneticistas com recursos avançados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Seção de Depoimentos -->
+  <section id="depoimentos" class="testimonials-section">
+    <div class="testimonials-container">
+      <h2 class="text-4xl font-bold mb-4 text-center" style="color: var(--primary-color); font-family: 'Barlow Condensed', sans-serif;">DEPOIMENTOS</h2>
+      <p class="text-xl text-center mb-8" style="color: var(--text-color); font-family: 'Roboto', sans-serif;">O que nossos clientes dizem sobre nossos serviços</p>
+      
+      <div class="testimonials-slider">
+        <!-- Card de depoimento -->
+        <div class="testimonial-card" style="margin-bottom: 2rem;">
+          <div class="testimonial-text" style="font-family: 'Roboto', sans-serif;">
+        MedCenter é uma ferramenta indispensável no nosso dia a dia. A facilidade de acesso aos dados e a organização que ele proporciona fez toda a diferença na gestão do hospital. Os médicos conseguem focar mais no paciente e menos na burocracia. Sem dúvida, uma solução inovadora e confiável.
+          </div>
+          <div class="testimonial-author">
+        <img src="../../assets/images/medico7.jpg" alt="Dra. Juliana Mendes">
+        <div class="author-info">
+          <h4 style="font-family: 'Barlow Condensed', sans-serif;">Dra. Juliana Mendes</h4>
+          <p style="font-family: 'Roboto', sans-serif;">Dermatologista - Belo Horizonte/MG</p>
+        </div>
+          </div>
+        </div>
+        <div class="testimonial-card" style="margin-bottom: 2rem;">
+          <div class="testimonial-text" style="font-family: 'Roboto', sans-serif;">
+        Trabalhar com o MedCenter trouxe muito mais eficiência para nossa equipe. A plataforma é intuitiva e super completa, permitindo que os profissionais registrem atendimentos rapidamente e acompanhem seus plantões de forma prática. É exatamente o que faltava para otimizar nosso trabalho.
+          </div>
+          <div class="testimonial-author">
+        <img src="../../assets/images/medico8.jpg" alt="Dr. Ricardo Lima">
+        <div class="author-info">
+          <h4 style="font-family: 'Barlow Condensed', sans-serif;">Dr. Ricardo Lima</h4>
+          <p style="font-family: 'Roboto', sans-serif;">Ortopedista - Curitiba/PR</p>
+        </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text" style="font-family: 'Roboto', sans-serif;">
+        Desde que começamos a usar o MedCenter, nossa rotina médica mudou completamente para melhor. A plataforma é prática, segura e facilita demais o registro dos atendimentos e o gerenciamento dos plantões. Além disso, os relatórios detalhados ajudam muito na tomada de decisões, tornando o atendimento mais eficiente e organizado. Recomendo para todos os profissionais da saúde que buscam uma solução tecnológica confiável e completa.
+          </div>
+          <div class="testimonial-author">
+        <img src="../../assets/images/medico6.png" alt="Dr. Carlos Silva">
+        <div class="author-info">
+          <h4 style="font-family: 'Barlow Condensed', sans-serif;">Dr. Carlos Silva</h4>
+          <p style="font-family: 'Roboto', sans-serif;">Cardiologista - São Paulo/SP</p>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Seção de Diferenciais -->
+  <section class="advantages-section">
+    <div class="advantages-container">
+      <h2 class="text-4xl font-bold mb-4 text-center" style="color: var(--primary-color); font-family: 'Barlow Condensed', sans-serif;">NOSSOS DIFERENCIAIS</h2>
+      <p class="text-xl text-center mb-8" style="color: var(--text-color); font-family: 'Roboto', sans-serif;">Por que escolher o MedCenter para ser seu site profissional</p>
+      
+      <div class="advantages-grid">
+        <!-- Card de diferencial -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="advantage-content">
+            <h3 style="font-family: 'Roboto', sans-serif;">Design Responsivo</h3>
+            <p style="font-family: 'Roboto', sans-serif;">Seu site perfeito em qualquer dispositivo: celular, tablet ou computador.</p>
+          </div>
+        </div>
+        <!-- Outros cards seguem o mesmo padrão -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="advantage-content">
+            <h3 style="font-family: 'Roboto', sans-serif;">Performance Otimizada</h3>
+            <p style="font-family: 'Roboto', sans-serif;">Site rápido que melhora a experiência do usuário e o SEO.</p>
+          </div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="advantage-content">
+            <h3 style="font-family: 'Roboto', sans-serif;">Segurança Avançada</h3>
+            <p style="font-family: 'Roboto', sans-serif;">Proteção contra ataques e vazamento de dados dos pacientes.</p>
+          </div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="advantage-content">
+            <h3 style="font-family: 'Roboto', sans-serif;">Agendamento Online</h3>
+            <p style="font-family: 'Roboto', sans-serif;">Sistema integrado de agendamento que reduz faltas e otimiza sua agenda.</p>
+          </div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="advantage-content">
+            <h3 style="font-family: 'Roboto', sans-serif;">Relatórios de Performance</h3>
+            <p style="font-family: 'Roboto', sans-serif;">Acompanhe o desempenho do seu site com métricas detalhadas.</p>
+          </div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="advantage-content">
+            <h3 style="font-family: 'Roboto', sans-serif;">Suporte Especializado</h3>
+            <p style="font-family: 'Roboto', sans-serif;">Equipe técnica disponível para auxiliar sempre que precisar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Seção de Perguntas Frequentes (FAQ) -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <h2 class="text-4xl font-bold mb-4 text-center" style="color: var(--primary-color); font-family: 'Barlow Condensed', sans-serif;">PERGUNTAS FREQUENTES</h2>
+      <p class="text-xl text-center mb-8" style="color: var(--text-color); font-family: 'Roboto', sans-serif;">Tire suas dúvidas sobre nossos serviços</p>
+      
+      <div class="faq-list">
+        <!-- Item de FAQ -->
+        <div class="faq-item">
+          <div class="faq-question" style="font-family: 'Roboto', sans-serif;">
+            O que exatamente o MedCenter faz?
+          </div>
+          <div class="faq-answer" style="font-family: 'Roboto', sans-serif;">
+            O MedCenter é voltado pra médicos autônomos e clínicas particulares que querem mais organização no dia a dia. Quem usa o sistema é o próprio médico ou a equipe da clínica. Cada profissional tem seu próprio acesso, com login e senha, e pode registrar os atendimentos, organizar a agenda, fazer buscas por pacientes e até gerar relatórios de consultas. O sistema foi pensado pra ser simples e direto ao ponto, facilitando a rotina sem complicação. Tudo fica salvo de forma segura e acessível, ideal pra quem quer sair da bagunça das anotações em papel e planilhas.
+          </div>
+        </div>
+        <!-- Outros itens seguem o mesmo padrão -->
+        <div class="faq-item">
+          <div class="faq-question" style="font-family: 'Roboto', sans-serif;">
+            É seguro armazenar dados dos pacientes no MedCenter?
+          </div>
+          <div class="faq-answer" style="font-family: 'Roboto', sans-serif;">
+            Sim! O sistema foi pensado pra garantir segurança e privacidade dos dados, com login individual e armazenamento seguro das informações médicas.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" style="font-family: 'Roboto', sans-serif;">
+            O MedCenter funciona só pra consultas presenciais?
+          </div>
+          <div class="faq-answer" style="font-family: 'Roboto', sans-serif;">
+            Não necessariamente. Ele pode ser usado tanto pra atendimentos presenciais quanto online, já que o foco é manter tudo organizado, independente do tipo de consulta.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" style="font-family: 'Roboto', sans-serif;">
+            O sistema é fácil de usar?
+          </div>
+          <div class="faq-answer" style="font-family: 'Roboto', sans-serif;">
+            Demais! Ele foi feito pra ser intuitivo, com uma interface simples que qualquer profissional da saúde consegue usar tranquilamente, mesmo sem ser expert em tecnologia.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2 class="text-4xl font-bold mb-4 text-center" style="font-family: 'Barlow Condensed', sans-serif;">FALE CONOSCO</h2>
+      <p class="text-xl text-center mb-8" style="font-family: 'Roboto', sans-serif;">Preencha o formulário abaixo e nossa equipe entrará em contato em breve</p>
+      
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="specialty">Especialidade Médica</label>
+            <select id="specialty" name="specialty" class="w-full p-3 border-2 border-gray-200 rounded-lg">
+              <option value="">Selecione sua especialidade</option>
+              <option value="Cardiologia">Cardiologia</option>
+              <option value="Dermatologia">Dermatologia</option>
+              <option value="Endocrinologia">Endocrinologia</option>
+              <option value="Ginecologia">Ginecologia</option>
+              <option value="Neurologia">Neurologia</option>
+              <option value="Oftalmologia">Oftalmologia</option>
+              <option value="Ortopedia">Ortopedia</option>
+              <option value="Pediatria">Pediatria</option>
+              <option value="Psiquiatria">Psiquiatria</option>
+              <option value="Outra">Outra</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">ENVIAR MENSAGEM</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Rodapé do site -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <a href="#" class="footer-logo">MED<span>CENTER</span></a>
+        <p>Especialistas em desenvolvimento de sites profissionais para médicos e clínicas. Nossa missão é ajudar profissionais da saúde a conquistar mais pacientes através de uma presença digital impactante.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Links Úteis</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Portfólio</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</p>
+        <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+        <p><i class="fas fa-envelope"></i> contato@medcenter.com.br</p>
+        <p><i class="fas fa-clock"></i> Seg-Sex: 9:00 - 18:00</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 MedCenter. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <!-- Script JavaScript da página do site -->
+  <script src="../js/site.js"></script>
+</body>
+</html>

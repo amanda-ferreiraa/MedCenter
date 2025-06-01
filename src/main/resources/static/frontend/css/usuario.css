@@ -1,0 +1,63 @@
+/* Importa a fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.menu-lateral {
+    background-color: #05567A !important;
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 50;
+}
+.menu-lateral-escondida {
+    transform: translateX(-100%);
+}
+.menu-lateral-logo {
+    border-bottom: 1.5px solid #3CA0D0 !important;
+}
+.logo-img {
+    width: 36px;
+    height: 36px;
+}
+.menu-lateral-item:hover, .menu-lateral-item:focus {
+    background-color: #3CA0D0 !important;
+    color: #fff !important;
+}
+.borda-superior {
+    border-top: 1.5px solid #3CA0D0 !important;
+}
+.sobreposicao-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 40;
+}
+.sobreposicao-menu.ativa {
+    display: block;
+}
+body {
+    background: #fff !important;
+}
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.borda-superior {
+    border-top: 1.5px solid #3CA0D0 !important; /* azul claro */
+}
+
+.menu-lateral-logo {
+    border-bottom: 1.5px solid #3CA0D0 !important;
+}
