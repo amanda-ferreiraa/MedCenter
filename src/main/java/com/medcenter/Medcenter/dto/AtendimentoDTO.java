@@ -1,45 +1,26 @@
-package com.medcenter.Medcenter.model;
-import jakarta.persistence.*;
-@Entity
-public class Atendimento {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idATENDIMENTO")
+package com.medcenter.Medcenter.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class AtendimentoDTO {
     private Long idAtendimento;
-
-    @Column(nullable = false)
     private String data;
-
-    @Column(nullable = false)
     private String hora;
 
-    @Column(nullable = true)
+    @JsonProperty("nomePaciente")
     private String nomePaciente;
 
-    @Column(nullable = false)
-        private String classificacaoRisco;
-
-    @Column(nullable = false)
+    private String classificacaoRisco;
     private String diagnostico;
-
-    @Column(nullable = false)
     private String reavaliacao;
-
-    @Column(nullable = false)
     private String desfecho;
-
-    @Column(nullable = false)
     private String especialidade;
-
-    @Column(nullable = false)
     private String concluido;
+    private Long idMedico;
 
-    @ManyToOne
-    @JoinColumn(name = "medico_idMedico")
-    private Medico medico;
-
-    // getters e setters
-
+    // Getters e Setters
+    public AtendimentoDTO() {
+    }
 
     public Long getIdAtendimento() {
         return idAtendimento;
@@ -121,13 +102,11 @@ public class Atendimento {
         this.concluido = concluido;
     }
 
-    public Medico getMedico() {
-        return medico;
+    public Long getIdMedico() {
+        return idMedico;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public void setIdMedico(Long idMedico) {
+        this.idMedico = idMedico;
     }
 }
-
-

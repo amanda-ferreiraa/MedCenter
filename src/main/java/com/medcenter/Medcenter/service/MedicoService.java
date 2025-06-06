@@ -1,26 +1,27 @@
-package com.medcenter.Medcenter.service;
+    package com.medcenter.Medcenter.service;
 
-import com.medcenter.Medcenter.model.Medico;
-import com.medcenter.Medcenter.repository.MedicoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+    import com.medcenter.Medcenter.model.Medico;
+    import com.medcenter.Medcenter.repository.MedicoRepository;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+    import java.util.Optional;
 
-@Service
-public class MedicoService {
-    @Autowired
-    private MedicoRepository medicoRepository;
+    @Service
+    public class MedicoService {
 
-    public Medico cadastrarMedico(Medico medico) {
-        return medicoRepository.save(medico);
-    }
+        @Autowired
+        private MedicoRepository medicoRepository;
 
-    public Optional<Medico> autenticar(String email, String senha) {
-        Optional<Medico> medico = medicoRepository.findByEmail(email);
-        if (medico.isPresent() && medico.get().getSenha().equals(senha)) {
-            return medico;
+        public Medico cadastrarMedico(Medico medico) {
+            return medicoRepository.save(medico);
         }
-        return Optional.empty();
+
+        public Optional<Medico> autenticar(String email, String senha) {
+            Optional<Medico> medico = medicoRepository.findByEmail(email);
+            if (medico.isPresent() && medico.get().getSenha().equals(senha)) {
+                return medico;
+            }
+            return Optional.empty();
+        }
     }
-}

@@ -1,10 +1,11 @@
 package com.medcenter.Medcenter.dto;
+import com.medcenter.Medcenter.model.Medico;
 
 public class LoginDTO {
     private String email;
     private String senha;
 
-    // Getters e setters
+    // Getters e Setters
     public String getEmail() {
         return email;
     }

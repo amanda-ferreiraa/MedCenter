@@ -53,3 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+    const medicoData = JSON.parse(localStorage.getItem("medicoLogado"));
+
+    if (medicoData) {
+    document.getElementById("nome-medico").textContent = medicoData.nome;
+    document.getElementById("especialidade").textContent = medicoData.especialidade;
+    // você pode adicionar outros campos também
+} else {
+    // Se não tiver ninguém logado, redireciona pro login
+    window.location.href = "login.html";
+}

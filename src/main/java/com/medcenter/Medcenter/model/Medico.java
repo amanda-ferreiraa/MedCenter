@@ -1,7 +1,10 @@
 package com.medcenter.Medcenter.model;
+
+import com.medcenter.Medcenter.dto.CadastroMedicoDTO;
 import jakarta.persistence.*;
 import java.util.List;
 import java.time.LocalDate;
+
 @Entity
 public class Medico {
     @Id
@@ -27,7 +30,7 @@ public class Medico {
     @Column(nullable = false)
     private String especialidade;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDate dataNascimento;
 
     private String fotoUrl;
@@ -38,9 +41,27 @@ public class Medico {
 
     private String biografia;
 
+    @Column(nullable = true)
+    private String genero;  // agora é String, sem enum
+
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Atendimento> atendimentos;
 
+    // Construtor padrão (obrigatório pro JPA)
+    public Medico() {
+    }
+
+    // Construtor que recebe o DTO e inicializa os campos principais
+    public Medico(CadastroMedicoDTO dto) {
+        this.nome = dto.getFullname();
+        this.crm = dto.getCrm();
+        this.email = dto.getEmail();
+        this.telefone = dto.getPhone();
+        this.senha = dto.getPassword();
+        this.especialidade = dto.getEspecialidade();
+    }
+
+    // Getters e Setters
     public Long getIdMedico() {
         return idMedico;
     }
@@ -144,5 +165,12 @@ public class Medico {
     public void setAtendimentos(List<Atendimento> atendimentos) {
         this.atendimentos = atendimentos;
     }
-}
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+}
