@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 public class Atendimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idATENDIMENTO")
+
+    @Column(name = "idAtendimento")
     private Long idAtendimento;
 
     @Column(nullable = false)
@@ -13,7 +14,7 @@ public class Atendimento {
     @Column(nullable = false)
     private String hora;
 
-    @Column(nullable = true)
+    @Column(name = "nome_paciente")
     private String nomePaciente;
 
     @Column(nullable = false)

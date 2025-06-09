@@ -12,260 +12,213 @@
     <link rel="stylesheet" href="../css/sidebar.css">
 </head>
 <body class="bg-gray-50" data-page="relatorios">
-    <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar será incluída dinamicamente -->
-        <div id="sidebar-container"></div>
-        <!-- Overlay da sidebar -->
-        <div id="sidebar-overlay" class="sobreposicao-menu"></div>
+<div class="flex h-screen overflow-hidden">
+    <div id="sidebar-container"></div>
+    <div id="sidebar-overlay" class="sobreposicao-menu"></div>
 
-        <!-- Conteúdo principal -->
-        <div class="conteudo-principal flex-1 flex flex-col overflow-hidden">
-            <!-- Barra superior -->
-            <header class="barra-superior bg-white shadow-sm z-10">
-                <div class="flex items-center justify-between p-4">
-                    <div class="flex items-center">
-                       <!-- Botão para abrir o menu lateral -->
-                        <button id="menu-toggle" class="text-[#05567A] mr-4">
-                            <i class="fas fa-bars text-xl"></i>
-                        </button>
-                        <h1 class="text-xl font-semibold text-gray-800">Relatórios e Estatísticas</h1>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="notificacao relative">
-                            <i class="fas fa-bell text-blue-600 text-xl"></i>
-                            <span class="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500"></span>
-                        </div>
-
-                    </div>
+    <div class="conteudo-principal flex-1 flex flex-col overflow-hidden">
+        <header class="barra-superior bg-white shadow-sm z-10">
+            <div class="flex items-center justify-between p-4">
+                <div class="flex items-center">
+                    <button id="menu-toggle" class="text-[#05567A] mr-4">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h1 class="text-xl font-semibold text-gray-800">Relatórios e Estatísticas</h1>
                 </div>
-            </header>
-
-            <!-- Área principal do conteúdo -->
-            <main class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50">
-                <!-- Filtros para relatórios -->
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
-                    <h2 class="text-lg font-medium text-gray-800 mb-4">Filtrar Relatórios</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <!-- Filtro por período -->
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-calendar text-gray-400"></i>
-                            </div>
-                            <input type="text" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Período">
-                        </div>
-                        <!-- Filtro por especialidade -->
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-filter text-gray-400"></i>
-                            </div>
-                            <select class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                <option value="">Todas as especialidades</option>
-                                <option value="clinica">Clínico Geral</option>
-                                <option value="pediatria">Pediatria</option>
-                                <option value="cirurgia">Cirurgia</option>
-                                <option value="cardiologia">Cardiologia</option>
-                            </select>
-                        </div>
-                        <!-- Filtro por médico -->
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-user-md text-gray-400"></i>
-                            </div>
-                            <select class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                <option value="">Todos os médicos</option>
-                                <option value="1">Dr. Silva</option>
-                                <option value="2">Dr. Oliveira</option>
-                                <option value="3">Dra. Santos</option>
-                                <option value="4">Dr. Costa</option>
-                            </select>
-                        </div>
-                        <!-- Botão para aplicar filtros -->
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
-                            <i class="fas fa-filter mr-2"></i>
-                            <span>Aplicar Filtros</span>
-                        </button>
+                <div class="flex items-center space-x-4">
+                    <div class="notificacao relative">
+                        <i class="fas fa-bell text-blue-600 text-xl"></i>
+                        <span class="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500"></span>
                     </div>
+
                 </div>
+            </div>
+        </header>
 
-                <!-- Gráficos de relatórios -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                    <!-- Gráfico por especialidade -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-medium text-gray-800">Atendimentos por Especialidade</h3>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-800">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
+        <main class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
+                <h2 class="text-lg font-medium text-gray-800 mb-4">Filtrar Relatórios</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-calendar text-gray-400"></i>
                         </div>
-                        <div class="chart-container">
-                            <canvas id="specialtiesChart"></canvas>
-                        </div>
+                        <input type="text" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Período">
                     </div>
-                    <!-- Gráfico de classificação de risco -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-medium text-gray-800">Classificação de Risco</h3>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-800">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-filter text-gray-400"></i>
                         </div>
-                        <div class="chart-container">
-                            <canvas id="riskChart"></canvas>
-                        </div>
+                        <select id="especialidadeFilter" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Todas as especialidades</option>
+                            <option value="clinica">Clínico Geral</option>
+                            <option value="pediatria">Pediatria</option>
+                            <option value="cirurgia">Cirurgia</option>
+                            <option value="cardiologia">Cardiologia</option>
+                        </select>
                     </div>
-                    <!-- Gráfico de desfechos -->
-                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-medium text-gray-800">Desfechos dos Atendimentos</h3>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-800">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user-md text-gray-400"></i>
                         </div>
-                        <div class="chart-container">
-                            <canvas id="outcomesChart"></canvas>
-                        </div>
+                        <select id="medicoFilter" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Todos os médicos</option>
+                            <option value="1">Dr. Silva</option>
+                            <option value="2">Dr. Oliveira</option>
+                            <option value="3">Dra. Santos</option>
+                            <option value="4">Dr. Costa</option>
+                        </select>
                     </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition flex items-center justify-center">
+                        <i class="fas fa-filter mr-2"></i>
+                        <span>Aplicar Filtros</span>
+                    </button>
                 </div>
+            </div>
 
-                <!-- Tabela de desempenho dos médicos -->
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                     <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-lg font-medium text-gray-800">Desempenho Médico</h2>
+                        <h3 class="text-lg font-medium text-gray-800">Atendimentos por Especialidade</h3>
                         <div class="flex space-x-2">
-                            <button class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg flex items-center space-x-2 transition">
-                                <i class="fas fa-file-excel"></i>
-                                <span class="hidden md:inline">Gerar XLS</span>
-                            </button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg flex items-center space-x-2 transition">
-                                <i class="fas fa-file-pdf"></i>
-                                <span class="hidden md:inline">Exportar PDF</span>
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-download"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Médico</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Atendimentos</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Média/Plantão</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tempo Médio</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Eficiência</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <!-- Exemplo de linha de desempenho -->
-                                <tr class="linha-desempenho hover:bg-gray-50">
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">Dr. Silva</div>
-                                                <div class="text-sm text-gray-500">Clínico Geral</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        128
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        21.3
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        18 min
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="w-24 bg-gray-200 rounded-full h-2.5">
-                                                <div class="bg-green-600 h-2.5 rounded-full" style="width: 85%"></div>
-                                            </div>
-                                            <span class="ml-2 text-xs font-medium text-gray-500">85%</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Outras linhas seguem o mesmo padrão -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Paginação da tabela de médicos -->
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="texto-paginacao text-sm text-gray-500">
-                            Mostrando <span class="font-medium">1</span> a <span class="font-medium">4</span> de <span class="font-medium">12</span> médicos
-                        </div>
-                        <div class="botoes-paginacao flex space-x-2">
-                            <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="px-3 py-1 bg-blue-600 text-white rounded-lg">1</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">2</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">3</button>
-                            <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
+                    <div class="chart-container">
+                        <canvas id="specialtiesChart"></canvas>
                     </div>
                 </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-gray-800">Classificação de Risco</h3>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-gray-800">Desfechos dos Atendimentos</h3>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="outcomesChart"></canvas>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Cartões resumo dos relatórios -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-blue-600 text-white p-4 rounded-lg shadow">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium">Total Atendimentos</p>
-                                <h3 class="text-2xl font-bold">355</h3>
-                            </div>
-                            <i class="fas fa-procedures text-2xl opacity-50"></i>
-                        </div>
-                        <div class="mt-2 text-xs">
-                            <span class="inline-block px-2 py-1 bg-blue-700 rounded-full">+12% mês passado</span>
-                        </div>
-                    </div>
-                    <div class="bg-green-600 text-white p-4 rounded-lg shadow">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium">Altas</p>
-                                <h3 class="text-2xl font-bold">278</h3>
-                            </div>
-                            <i class="fas fa-home text-2xl opacity-50"></i>
-                        </div>
-                        <div class="mt-2 text-xs">
-                            <span class="inline-block px-2 py-1 bg-green-700 rounded-full">78.3% do total</span>
-                        </div>
-                    </div>
-                    <div class="bg-yellow-500 text-white p-4 rounded-lg shadow">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium">Internações</p>
-                                <h3 class="text-2xl font-bold">42</h3>
-                            </div>
-                            <i class="fas fa-hospital text-2xl opacity-50"></i>
-                        </div>
-                        <div class="mt-2 text-xs">
-                            <span class="inline-block px-2 py-1 bg-yellow-600 rounded-full">11.8% do total</span>
-                        </div>
-                    </div>
-                    <div class="bg-red-600 text-white p-4 rounded-lg shadow">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium">Transferências</p>
-                                <h3 class="text-2xl font-bold">35</h3>
-                            </div>
-                            <i class="fas fa-ambulance text-2xl opacity-50"></i>
-                        </div>
-                        <div class="mt-2 text-xs">
-                            <span class="inline-block px-2 py-1 bg-red-700 rounded-full">9.9% do total</span>
-                        </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-medium text-gray-800">Desempenho Médico</h2>
+                    <div class="flex space-x-2">
+                        <button class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg flex items-center space-x-2 transition">
+                            <i class="fas fa-file-excel"></i>
+                            <span class="hidden md:inline">Gerar XLS</span>
+                        </button>
+                        <button class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg flex items-center space-x-2 transition">
+                            <i class="fas fa-file-pdf"></i>
+                            <span class="hidden md:inline">Exportar PDF</span>
+                        </button>
                     </div>
                 </div>
-            </main>
-        </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Médico</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Atendimentos</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Média/Plantão</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tempo Médio</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Eficiência</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 flex items-center justify-between">
+                    <div class="texto-paginacao text-sm text-gray-500">
+                        Mostrando <span class="font-medium">1</span> a <span class="font-medium">4</span> de <span class="font-medium">12</span> médicos
+                    </div>
+                    <div class="botoes-paginacao flex space-x-2">
+                        <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="px-3 py-1 bg-blue-600 text-white rounded-lg">1</button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">2</button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">3</button>
+                        <button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-blue-600 text-white p-4 rounded-lg shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium">Total Atendimentos</p>
+                            <h3 class="text-2xl font-bold">355</h3>
+                        </div>
+                        <i class="fas fa-procedures text-2xl opacity-50"></i>
+                    </div>
+                    <div class="mt-2 text-xs">
+                        <span class="inline-block px-2 py-1 bg-blue-700 rounded-full">+12% mês passado</span>
+                    </div>
+                </div>
+                <div class="bg-green-600 text-white p-4 rounded-lg shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium">Altas</p>
+                            <h3 class="text-2xl font-bold">278</h3>
+                        </div>
+                        <i class="fas fa-home text-2xl opacity-50"></i>
+                    </div>
+                    <div class="mt-2 text-xs">
+                        <span class="inline-block px-2 py-1 bg-green-700 rounded-full">78.3% do total</span>
+                    </div>
+                </div>
+                <div class="bg-yellow-500 text-white p-4 rounded-lg shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium">Internações</p>
+                            <h3 class="text-2xl font-bold">42</h3>
+                        </div>
+                        <i class="fas fa-hospital text-2xl opacity-50"></i>
+                    </div>
+                    <div class="mt-2 text-xs">
+                        <span class="inline-block px-2 py-1 bg-yellow-600 rounded-full">11.8% do total</span>
+                    </div>
+                </div>
+                <div class="bg-red-600 text-white p-4 rounded-lg shadow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium">Transferências</p>
+                            <h3 class="text-2xl font-bold">35</h3>
+                        </div>
+                        <i class="fas fa-ambulance text-2xl opacity-50"></i>
+                    </div>
+                    <div class="mt-2 text-xs">
+                        <span class="inline-block px-2 py-1 bg-red-700 rounded-full">9.9% do total</span>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    <script src="../js/sidebar.js"></script>
-    <script src="../js/relatorios.js"></script>
+</div>
+<script src="../js/sidebar.js"></script>
+<script src="../js/relatorios.js"></script>
 </body>
 </html>

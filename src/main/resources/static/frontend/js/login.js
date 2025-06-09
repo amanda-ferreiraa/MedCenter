@@ -48,7 +48,6 @@ loginForm.addEventListener('submit', async function (e) {
             window.location.href = "../pages/usuario.html";
 
         } else {
-            // ❌ Mostra mensagem de erro
             errorMessage.textContent = "Email ou senha incorretos.";
             errorMessage.classList.remove("hidden");
         }
