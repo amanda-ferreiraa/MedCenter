@@ -136,7 +136,7 @@ Este projeto é dividido em duas partes principais:
         * **ATENÇÃO:** Confirme a porta em que o `http-server` está rodando (geralmente 8080 ou 8000) e **ajuste o `allowedOrigins` do CORS no backend** se necessário. Evite a porta 8080 para o frontend se o backend também usa 8080, para evitar conflitos.
 
 5.  **Acessar a Aplicação:**
-    * Abra seu navegador e acesse `http://localhost:8000` (ou a porta que o `http-server` indicou).
+    * Abra seu navegador e acesse `http://localhost:8000/frontend/pages/site.html` (ou a porta que o `http-server` indicou).
 
 ## 🤝 Contribuição
 
