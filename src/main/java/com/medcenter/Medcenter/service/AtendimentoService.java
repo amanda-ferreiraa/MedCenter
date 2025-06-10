@@ -1,14 +1,14 @@
+// src/main/java/com/medcenter/Medcenter.service/AtendimentoService.java
 package com.medcenter.Medcenter.service;
 
 import com.medcenter.Medcenter.dto.AtendimentoDTO;
-// Importar todos os DTOs, incluindo os novos para a dashboard
 import com.medcenter.Medcenter.dto.AtendimentoPorEspecialidadeDTO;
 import com.medcenter.Medcenter.dto.ClassificacaoRiscoDTO;
 import com.medcenter.Medcenter.dto.DesfechoAtendimentoDTO;
 import com.medcenter.Medcenter.dto.DesempenhoMedicoDTO;
 import com.medcenter.Medcenter.dto.ResumoAtendimentosDTO;
-import com.medcenter.Medcenter.dto.ResumoAtendimentosDiaDTO; // NOVO DTO
-import com.medcenter.Medcenter.dto.AtendimentoSemanalDTO; // NOVO DTO
+import com.medcenter.Medcenter.dto.ResumoAtendimentosDiaDTO;
+import com.medcenter.Medcenter.dto.AtendimentoSemanalDTO;
 
 import com.medcenter.Medcenter.model.Atendimento;
 import com.medcenter.Medcenter.model.Medico;
@@ -21,13 +21,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.time.LocalDate; // Para usar LocalDate para datas
-import java.time.LocalTime; // Para parsear e calcular tempo médio (se necessário)
-import java.time.format.DateTimeFormatter; // Para formatar datas
-import java.time.temporal.ChronoUnit; // Para calcular tempo médio (se necessário)
-import java.util.ArrayList; // Para o gráfico semanal
-import java.util.Comparator; // Para ordenar a lista final
-import java.util.LinkedHashMap; // Para manter a ordem das datas no mapa
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -58,15 +58,27 @@ public class AtendimentoService {
         atendimento.setEspecialidade(dto.getEspecialidade());
         atendimento.setConcluido(dto.getConcluido());
 
-        if (dto.getIdMedico() != null) {
-            Optional<Medico> medicoOpt = medicoRepository.findById(dto.getIdMedico());
-            medicoOpt.ifPresent(atendimento::setMedico);
+        // *******************************************************************
+        // MUDANÇA AQUI: Associar sempre ao médico com ID 1
+        // *******************************************************************
+        final Long ID_MEDICO_PADRAO = 1L; // Defina o ID do médico padrão aqui
+
+        Optional<Medico> medicoPadraoOpt = medicoRepository.findById(ID_MEDICO_PADRAO);
+
+        if (medicoPadraoOpt.isPresent()) {
+            atendimento.setMedico(medicoPadraoOpt.get());
         } else {
-            atendimento.setMedico(null); // Define médico como null se ID não for fornecido
+            // Se o médico com ID 1 não existir, lance uma exceção para evitar problemas.
+            // É CRÍTICO que o médico com ID 1 exista no seu banco de dados.
+            throw new RuntimeException("Médico padrão com ID " + ID_MEDICO_PADRAO + " não encontrado. Por favor, cadastre-o no banco de dados.");
         }
+        // *******************************************************************
 
         Atendimento salvo = atendimentoRepository.save(atendimento);
         dto.setIdAtendimento(salvo.getIdAtendimento());
+        // Se o DTO tem um campo idMedico, você pode setá-lo aqui com o valor 1L,
+        // mas não é estritamente necessário para o funcionamento do salvamento.
+        dto.setIdMedico(ID_MEDICO_PADRAO);
         return dto;
     }
 
@@ -154,18 +166,7 @@ public class AtendimentoService {
     }
 
     public List<DesempenhoMedicoDTO> getDesempenhoMedicos() {
-        // O repositório já retorna um DTO básico.
-        // Se precisar de cálculos mais complexos de tempo médio ou atendimentos por plantão,
-        // essa lógica seria implementada aqui, possivelmente buscando dados brutos adicionais.
         List<DesempenhoMedicoDTO> desempenhoList = atendimentoRepository.findDesempenhoMedicos();
-
-        // Exemplo: se você tivesse dados de início e fim de plantões, poderia calcular:
-        // for (DesempenhoMedicoDTO dto : desempenhoList) {
-        //     // Lógica para calcular tempo médio e média por plantão
-        //     dto.setTempoMedioAtendimento("30 min"); // Exemplo mock
-        //     dto.setMediaAtendimentosPorPlantao(dto.getTotalAtendimentos() / 5.0); // Exemplo mock
-        // }
-
         return desempenhoList;
     }
 
@@ -189,19 +190,14 @@ public class AtendimentoService {
      * Inclui total, concluídos, em andamento, e a especialidade do médico.
      */
     public ResumoAtendimentosDiaDTO getResumoDiarioMedico(Long medicoId, String dataHoje) {
-        // Encontrar o médico para pegar a especialidade
         Optional<Medico> medicoOpt = medicoRepository.findById(medicoId);
-        // Se o médico não for encontrado, a especialidade será "Não informada"
         String especialidadeMedico = medicoOpt.map(Medico::getEspecialidade).orElse("Não informada");
 
-        // Conta o total de atendimentos para o dia (usando findByMedicoIdAndData e contando o tamanho da lista)
         Long totalAtendimentos = (long) atendimentoRepository.findByMedicoIdAndData(medicoId, dataHoje).size();
 
-        // Contar atendimentos concluídos e em andamento
         Long concluidos = atendimentoRepository.countByMedicoIdAndDataAndConcluidoTrue(medicoId, dataHoje);
         Long emAndamento = atendimentoRepository.countByMedicoIdAndDataAndConcluidoFalse(medicoId, dataHoje);
 
-        // Garante que os valores não sejam null (caso não haja nenhum atendimento com o status)
         concluidos = (concluidos != null) ? concluidos : 0L;
         emAndamento = (emAndamento != null) ? emAndamento : 0L;
 
@@ -224,32 +220,27 @@ public class AtendimentoService {
      */
     public List<AtendimentoSemanalDTO> getAtendimentosSemanal(Long medicoId) {
         LocalDate hoje = LocalDate.now();
-        // Os últimos 7 dias (hoje + 6 dias anteriores)
         LocalDate seteDiasAtras = hoje.minusDays(6);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String dataInicioStr = seteDiasAtras.format(formatter);
         String dataFimStr = hoje.format(formatter);
 
-        // Busca os dados do repositório
         List<AtendimentoSemanalDTO> dadosBrutos = atendimentoRepository.countAtendimentosSemanalByMedicoId(medicoId, dataInicioStr, dataFimStr);
 
-        // Cria um mapa para facilitar o preenchimento de dias com zero, mantendo a ordem
         Map<String, Long> atendimentosPorData = new LinkedHashMap<>();
         for (int i = 0; i < 7; i++) {
             LocalDate dataIteracao = seteDiasAtras.plusDays(i);
-            atendimentosPorData.put(dataIteracao.format(formatter), 0L); // Inicializa com 0
+            atendimentosPorData.put(dataIteracao.format(formatter), 0L);
         }
 
-        // Preenche o mapa com os dados reais retornados do banco
         for (AtendimentoSemanalDTO dto : dadosBrutos) {
             atendimentosPorData.put(dto.getData(), dto.getTotalAtendimentos());
         }
 
-        // Converte o mapa de volta para uma lista de DTOs, garantindo a ordem cronológica
         List<AtendimentoSemanalDTO> dadosCompletos = atendimentosPorData.entrySet().stream()
                 .map(entry -> new AtendimentoSemanalDTO(entry.getKey(), entry.getValue()))
-                .sorted(Comparator.comparing(AtendimentoSemanalDTO::getData)) // Garante a ordem cronológica das datas
+                .sorted(Comparator.comparing(AtendimentoSemanalDTO::getData))
                 .collect(Collectors.toList());
 
         return dadosCompletos;
@@ -267,8 +258,6 @@ public class AtendimentoService {
         dto.setReavaliacao(atendimento.getReavaliacao());
         dto.setDesfecho(atendimento.getDesfecho());
         dto.setEspecialidade(atendimento.getEspecialidade());
-        // No seu modelo, 'concluido' é String, então mapeamos como String aqui.
-        // Se no futuro você mudar para boolean no modelo, esta linha precisará ser ajustada.
         dto.setConcluido(atendimento.getConcluido());
 
         if (atendimento.getMedico() != null) {
