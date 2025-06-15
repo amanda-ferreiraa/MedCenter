@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("*") // Coloca o IP do seu front aqui
+                        .allowedOrigins("*")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*");
             }
